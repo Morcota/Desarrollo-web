@@ -32,6 +32,38 @@
   <!-- Contenido Principal -->
   <main class="container">
 
+    <!-- Sección de Registro de Usuarios -->
+    <section id="registro" class="section auth-section">
+      <h2>Registro de Clientes</h2>
+      
+      <form id="registerForm" class="auth-form">
+        <div class="form-group">
+          <label for="regName">Nombre Completo:</label>
+          <input type="text" id="regName" required placeholder="Ej. Ana Pérez">
+        </div>
+
+        <div class="form-group">
+          <label for="regEmail">Correo Electrónico:</label>
+          <input type="email" id="regEmail" required placeholder="correo@ejemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword">Contraseña:</label>
+          <input type="password" id="regPassword" required placeholder="Mínimo 6 caracteres">
+        </div>
+
+        <button type="submit" class="btn-submit">Registrarse</button>
+        <p id="formMessage" class="form-message"></p>
+      </form>
+
+      <!-- Mensaje de bienvenida que aparece al registrarse -->
+      <div id="welcomeContainer" class="welcome-container" style="display: none;">
+        <h3>¡Registro exitoso! 🎉</h3>
+        <p>Bienvenido/a, <span id="userDisplayName"></span>.</p>
+        <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+      </div>
+    </section>
+
     <!-- Sección de Productos -->
     <section id="productos" class="section">
       <h2>Nuestros Productos</h2>

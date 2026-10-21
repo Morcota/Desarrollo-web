@@ -104,4 +104,62 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarTotal();
   });
 
+  // ==========================================
+  // 3. MÓDULO DE REGISTRO DE USUARIOS
+  // ==========================================
+
+  const registerForm = document.getElementById("registerForm");
+  const regNameInput = document.getElementById("regName");
+  const regEmailInput = document.getElementById("regEmail");
+  const regPasswordInput = document.getElementById("regPassword");
+  const formMessage = document.getElementById("formMessage");
+  const welcomeContainer = document.getElementById("welcomeContainer");
+  const userDisplayName = document.getElementById("userDisplayName");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  // Verificar si ya hay un usuario registrado en la sesión actual o localStorage
+  const usuarioGuardado = localStorage.getItem("usuarioRegistrado");
+  if (usuarioGuardado) {
+    mostrarBienvenida(usuarioGuardado);
+  }
+
+  // Manejar el envío del formulario de registro
+  registerForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Evitar que la página se recargue
+
+    const nombre = regNameInput.value.trim();
+    const email = regEmailInput.value.trim();
+    const password = regPasswordInput.value;
+
+    // Validación básica
+    if (password.length < 6) {
+      formMessage.textContent = "La contraseña debe tener al menos 6 caracteres.";
+      formMessage.className = "form-message error";
+      return;
+    }
+
+    // Guardar datos en localStorage para persistencia básica
+    localStorage.setItem("usuarioRegistrado", nombre);
+
+    // Mostrar mensaje de éxito y ocultar formulario
+    formMessage.textContent = "";
+    mostrarBienvenida(nombre);
+    
+    // Limpiar campos
+    registerForm.reset();
+  });
+
+  function mostrarBienvenida(nombre) {
+    userDisplayName.textContent = nombre;
+    registerForm.style.display = "none";
+    welcomeContainer.style.display = "block";
+  }
+
+  // Botón para cerrar sesión / registrar otro usuario
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("usuarioRegistrado");
+    welcomeContainer.style.display = "none";
+    registerForm.style.display = "flex";
+  });
+
 });
