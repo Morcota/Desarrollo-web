@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online - Proyecto Web II</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Encabezado / Navegación -->
+  <header class="navbar">
+    <div class="logo">MiTienda</div>
+
+    <!-- Menú Responsive -->
+    <nav class="nav-menu" id="navMenu">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#carrito">Carrito</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Botón Modo Claro / Oscuro -->
+      <button id="themeToggleBtn" class="btn-theme">🌙 Modo Oscuro</button>
+      <!-- Botón Menú Hamburguesa para Móvil -->
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="container">
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="section">
+      <h2>Nuestros Productos</h2>
+      <div class="product-grid">
+
+        <!-- Producto 1 -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/200" alt="Producto 1">
+          <h3>Mouse Gamer Wireless</h3>
+          <p class="precio">$45.000</p>
+          <button class="btn-agregar" data-id="1" data-nombre="Mouse Gamer Wireless" data-precio="45000">
+            Agregar al Carrito
+          </button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/200" alt="Producto 2">
+          <h3>Teclado Mecánico RGB</h3>
+          <p class="precio">$120.000</p>
+          <button class="btn-agregar" data-id="2" data-nombre="Teclado Mecánico RGB" data-precio="120000">
+            Agregar al Carrito
+          </button>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/200" alt="Producto 3">
+          <h3>Diadema Gamer 7.1</h3>
+          <p class="precio">$85.000</p>
+          <button class="btn-agregar" data-id="3" data-nombre="Diadema Gamer 7.1" data-precio="85000">
+            Agregar al Carrito
+          </button>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-card">
+          <img src="https://via.placeholder.com/200" alt="Producto 4">
+          <h3>Mousepad XXL RGB</h3>
+          <p class="precio">$35.000</p>
+          <button class="btn-agregar" data-id="4" data-nombre="Mousepad XXL RGB" data-precio="35000">
+            Agregar al Carrito
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección del Carrito de Compras -->
+    <section id="carrito" class="section cart-section">
+      <h2>Carrito de Compras</h2>
+      
+      <!-- Listado dinámico de ítems -->
+      <ul id="cartList" class="cart-list">
+        <!-- Los ítems se agregarán dinámicamente desde app.js -->
+      </ul>
+
+      <!-- Total y Acciones -->
+      <div class="cart-summary">
+        <h3>Total: $<span id="cartTotal">0</span></h3>
+        <button id="clearCartBtn" class="btn-vaciar">Vaciar Carrito</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Vincular el script al final de </body> -->
+  <script src="js/app.js"></script>
+</body>
+</html>
